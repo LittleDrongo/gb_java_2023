@@ -1,0 +1,63 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "cycles",
+            "request": "launch",
+            "mainClass": "cycles",
+            "projectName": "gb_java_2023_96a331c9"
+        },
+        {
+            "type": "java",
+            "name": "files",
+            "request": "launch",
+            "mainClass": "files",
+            "projectName": "gb_java_2023_96a331c9"
+        },
+        {
+            "type": "java",
+            "name": "foreach",
+            "request": "launch",
+            "mainClass": "foreach",
+            "projectName": "gb_java_2023_96a331c9"
+        },
+        {
+            "type": "java",
+            "name": "program",
+            "request": "launch",
+            "mainClass": "program",
+            "projectName": "gb_java_2023_96a331c9"
+        },
+        {
+            "type": "java",
+            "name": "scanner",
+            "request": "launch",
+            "mainClass": "scanner",
+            "projectName": "gb_java_2023_96a331c9"
+        },
+        {
+            "type": "java",
+            "name": "swith",
+            "request": "launch",
+            "mainClass": "swith",
+            "projectName": "gb_java_2023_96a331c9"
+        },
+        {
+            "type": "java",
+            "name": "types",
+            "request": "launch",
+            "mainClass": "types",
+            "projectName": "gb_java_2023_96a331c9"
+        }
+    ]
+}
