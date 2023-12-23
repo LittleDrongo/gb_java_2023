@@ -1,36 +1,40 @@
 package homework21;
 
 class Answer {
-    public static StringBuilder answer(String QUERY, String PARAMS){
+    public static StringBuilder answer(String QUERY, String PARAMS) {
         // Напишите свое решение ниже
 
         // Удаление ненужных символов
         String paramsFormated = "";
-//        PARAMS = PARAMS.replaceAll("[{}\"]", "");
         paramsFormated = PARAMS.replaceAll("[{}\"]", "");
-//        PARAMS = PARAMS.replaceAll("[:\"]", "'=");
         paramsFormated = paramsFormated.replaceAll(":", "='");
         paramsFormated = paramsFormated.replaceAll(",", "',");
         paramsFormated = paramsFormated.replaceAll(",", " and");
 
         StringBuilder paramsBuilder = new StringBuilder(paramsFormated);
-        paramsBuilder.delete(paramsBuilder.length()-1, paramsBuilder.length());
         paramsBuilder.append("'");
-        System.out.println(paramsBuilder);
 
-        String tempResult = (QUERY + paramsBuilder.toString());
-        String result = tempResult.replaceAll("'null'", "null");
 
-        System.out.println(result);
-        return null;
-    }
+        String[] array = (paramsBuilder.toString().split(" and "));
+        StringBuilder paramsNoNull = new StringBuilder();
 
-    private static void charsReplacer(StringBuilder sqlB, char ch1, char ch2) {
-        for (int index = 0; index < sqlB.length(); index++) {
-            if (sqlB.charAt(index) == ch1) {
-                sqlB.setCharAt(index, ch2);
+        //Проверка на наличие в параметре null
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].contains("null")) {
+                continue;
+            } else {
+                if (i < array.length - 2) {
+                    paramsNoNull.append(array[i]);
+                    paramsNoNull.append(" and ");
+                } else {
+                    paramsNoNull.append(array[i]);
+                }
             }
+
+
         }
+        StringBuilder result = new StringBuilder(QUERY + paramsNoNull);
+        return result;
     }
 }
 
@@ -44,7 +48,10 @@ public class Printer{
         if (args.length == 0) {
             // При отправке кода на Выполнение, вы можете варьировать эти параметры
             QUERY = "select * from students where ";
+//            PARAMS = "{\"name\":\"Ivanov\", \"country\":\"Russia\", \"city\":\"Moscow\", \"age\":\"null\"}";
             PARAMS = "{\"name\":\"Ivanov\", \"country\":\"Russia\", \"city\":\"Moscow\", \"age\":\"null\"} ";
+//            '{"name":"Andron", "country":"Russia", "city":"Moscow", "age":"null"}'
+//            '{"name":"Ivanov", "country":"Russia", "city":"Moscow", "age":"null"}'
         }
         else{
             QUERY = args[0];
