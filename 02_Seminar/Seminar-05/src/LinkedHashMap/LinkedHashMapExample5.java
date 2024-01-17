@@ -15,5 +15,13 @@ public class LinkedHashMapExample5 {
         for (Map.Entry<String, Integer> entry : linkedHashMap.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
+
+        for (Integer value : linkedHashMap.values()) {
+            System.out.println(value);
+        }
+
+        for (String key : linkedHashMap.keySet()) {
+            System.out.println(key);
+        }
     }
 }
