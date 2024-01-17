@@ -2,6 +2,7 @@ package LinkedHashMap;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Collection;
 
 public class LinkedHashMapExample5 {
     public static void main(String[] args) {
