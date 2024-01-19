@@ -1,4 +1,4 @@
-package HashSet.Task1;
+package HashSet;
 
 import java.util.HashSet;
 
