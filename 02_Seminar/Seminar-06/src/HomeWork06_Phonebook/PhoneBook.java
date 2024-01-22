@@ -27,13 +27,28 @@ public class PhoneBook {
         addContact(phoneBook, "Алексей", "7646514561");
         addContact(phoneBook, "Алексей", "46151674");
         addContact(phoneBook, "Сергей", "46151004");
+        addContact(phoneBook, "Алексей", "53711244525");
+        addContact(phoneBook, "Сергей", "423423");
+        addContact(phoneBook, "Пётр", "46151004");
 
-        System.out.println(phoneBook);
+        System.out.println("Сырой HashMap phoneBook: " + phoneBook);
+        System.out.println();
+        printPhoneBook(phoneBook);
 
     }
 
     private static void addContact(Map<String, List<String>> phoneBook, String name, String phone){
         phoneBook.computeIfAbsent(name, k -> new ArrayList<>()).add(phone);
     }
+    private static void printPhoneBook(Map<String, List<String>> phoneBook) {
+        List<Map.Entry<String, List<String>>> entries = new ArrayList<>(phoneBook.entrySet());
 
+        entries.sort((entry1, entry2) -> Integer.compare(entry2.getValue().size(), entry1.getValue().size()));
+
+        for (Map.Entry<String, List<String>> entry : entries) {
+            String name = entry.getKey();
+            List<String> phoneNumbers = entry.getValue();
+            System.out.println(name + ": " + phoneNumbers);
+        }
+    }
 }
