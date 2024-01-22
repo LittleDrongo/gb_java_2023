@@ -22,19 +22,18 @@ public class PhoneBook {
     public static void main(String[] args) {
 
         // Создаю HashMap телефонной книги
-        HashMap<String, List<Integer>> phoneBook = new HashMap<>();
+        HashMap<String, List<String>> phoneBook = new HashMap<>();
 
+        addContact(phoneBook, "Алексей", "7646514561");
+        addContact(phoneBook, "Алексей", "46151674");
+        addContact(phoneBook, "Сергей", "46151004");
 
-        phoneBook.computeIfAbsent("Алексей", k -> new ArrayList<>()).add(896714030);
-        phoneBook.computeIfAbsent("Сергей", k -> new ArrayList<>()).add(00000);
-        phoneBook.computeIfAbsent("Алексей", k -> new ArrayList<>()).add(534534534);
-        phoneBook.computeIfAbsent("Пётр", k -> new ArrayList<>()).add(666);
-//
         System.out.println(phoneBook);
-//        if (phoneBook.containsKey("Алексей"))
-//        {
-//            System.out.println("ddd");
-//        }
 
     }
+
+    private static void addContact(Map<String, List<String>> phoneBook, String name, String phone){
+        phoneBook.computeIfAbsent(name, k -> new ArrayList<>()).add(phone);
+    }
+
 }
